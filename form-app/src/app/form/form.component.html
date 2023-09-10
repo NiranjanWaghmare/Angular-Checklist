@@ -1,0 +1,12 @@
+<form #formData="ngForm" class="form-control p-4 card-body" (ngSubmit)="Submit_task(formData.value); formSubmitted = true; formData.reset()">
+  <label for="task" class="">Enter Tasks</label>
+  <input required ngModel minlength="2" maxlength="10" id="task" name="task" #task="ngModel" (mouseleave)="enableSubmit(task)" type="text" class="form-control">
+  <div class="alert alert-danger" *ngIf="task.invalid && !formSubmitted && task.touched && formData.valid">
+    Field is required (2 to 10 characters).
+  </div>
+
+  <button class="mt-4 btn btn-primary" [disabled]="isdisabled"  name="Submit" type="submit">Submit</button>
+</form>
+
+<!-- Show the alert when the form is submitted -->
+<!-- <div class="alert alert-success" *ngIf="formSubmitted">Form submitted successfully!</div> -->

@@ -1,0 +1,16 @@
+<div *ngIf="hideList row" class="card m-4">
+    
+    <div class="p-4 col-6 "><h2 >List of Tasks</h2>
+        <h6>(click on the tasks to mark them complete)</h6>
+    </div>
+    <div class="p-4 col-6"><button class="btn btn-primary"  (click)=resetList() >Reset</button></div>
+
+
+
+<ul>
+    
+    <li class="non-selectable"  *ngFor="let x of tasks ; let i=index"   id="{{x}}-{{i}}" (click)="Strike(x,i)" >
+        {{x}}
+    </li>
+</ul>
+</div>
